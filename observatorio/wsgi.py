@@ -1,5 +1,5 @@
 """
-WSGI config for varaderocd project.
+WSGI config for observatorio project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'varaderocd.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'observatorio.settings')
 
 application = get_wsgi_application()
