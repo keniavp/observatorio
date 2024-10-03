@@ -1,0 +1,38 @@
+/* jazzmin_dark.css */
+
+.sidebar-dark-primary {
+    background-color: #2f439a; /* Color oscuro para la barra lateral */
+}
+.navbar-dark {
+    background-color: #1A202C; /* Color oscuro para la barra de navegación */
+}
+
+.text-light {
+    color: #F8F9FA; /* Texto blanco */
+}
+
+.bg-light {
+    background-color: #F8F9FA; /* Fondo claro */
+}
+
+.table-dark {
+    background-color: #22272E; /* Fondo oscuro para tablas */
+}
+
+.jazzmin-login-page {
+    background-color: #22272E; /* Fondo oscuro para tablas */
+}
+
+.login-logo {
+    margin-bottom: 30px;
+}
+.brand-image{
+    width: 100px !important;
+}
+.brand-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    line-height: 1;
+}

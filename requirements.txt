@@ -1,10 +1,5 @@
-Django==3.2.19
-gunicorn==21.2.0
-psycopg2==2.9.6
-django-graphql-auth==0.3.16
-djangorestframework==3.14.0
-django-cors-headers==4.2.0
-graphene-django==2.16.0
-django-graphql-jwt==0.3.0
-graphene-file-upload==1.3.0
-Pillow==10.0.0
+asgiref==3.8.1
+Django==5.1.1
+django-jazzmin==3.0.0
+sqlparse==0.5.1
+tzdata==2024.1

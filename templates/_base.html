@@ -1,0 +1,229 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Observatorio | {% block title %}
+
+    {% endblock %}</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    {% block css %}
+
+    {% endblock %}
+    <link href="{% static 'plugins/chart.js/Chart.min.css' %}" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+
+    <nav class="main-header navbar navbar-expand navbar-white navbar-dark bg-gradient-blue">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{% url 'home' %}" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-user"></i>
+                    <span>{{ user.email }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-cog mr-2"></i>Perfil de usuario
+                    </a>
+                    <a href="{% url 'logout' %}" class="dropdown-item">
+                        <i class="fas fa-power-off mr-2"></i>Cerrar sesi&oacute;n
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+    <aside class="main-sidebar elevation-4 bg-gradient-blue">
+        <!-- Brand Logo -->
+        <a href="{% url 'home' %}" class="brand-link">
+            <h2 class="text-white text-bold">SGVel</h2>
+            <span class="brand-text font-weight-light"></span>
+        </a><br>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="{% static 'dist/img/user.png' %}" class="img-circle elevation-2"
+                         alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block text-white">{{ user.username }}</a>
+                </div>
+            </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-item {% if router == "paises" or router == "provincia" or router == "municipio" %} menu-open {% endif %}">
+                        <a href="#"
+                           class="nav-link text-white  {% if router == "paises" or router == "provincia" or router == "municipio" %} active {% endif %}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Nomencladores
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'paises' %}"
+                                   class="nav-link text-white {% if router == "paises" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Pa&iacute;ses</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'provincias' %}"
+                                   class="nav-link text-white {% if router == "provincia" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Provincias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'municipios' %}"
+                                   class="nav-link text-white {% if router == "municipio" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Municipios</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'comunidades' %}"
+                           class="nav-link {% if router == "comunidades" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-archive"></i>
+                            <p>
+                                Comunidades
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'eventos' %}" class="nav-link {% if router == "eventos" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-calendar"></i>
+                            <p>
+                                Eventos
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'ordenamiento' %}" class="nav-link {% if router == "ordenamiento" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-bars"></i>
+                            <p>
+                                Ordenamiento
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'proyectos' %}" class="nav-link {% if router == "proyectos" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-file-archive"></i>
+                            <p>
+                                Proyectos
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'tratados' %}" class="nav-link {% if router == "tratados" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Tratados
+                            </p>
+                        </a>
+                    </li>
+                <li class="nav-header">Configuraci&oacute;n</li>
+                <li class="nav-item">
+                        <a href="{% url 'usuarios' %}" class="nav-link {% if router == "usuarios" %} active {% endif %} text-white">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Usuarios
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">{% block title_main %}
+
+                        {% endblock %}</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+                            <li class="breadcrumb-item active">{% block title-breadcrumb %}
+
+                            {% endblock %}</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <div class="content">
+            <div class="container-fluid">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+            <h5>Title</h5>
+            <p>Sidebar content</p>
+        </div>
+    </aside>
+
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; {{ year }} <a href="#">Observatorio</a>.</strong> Todos los derechos reservados.
+    </footer>
+</div>
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+{% block js %}
+
+{% endblock %}
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<script src="{% static 'dist/js/sweet.js' %}"></script>
+</body>
+</html>
