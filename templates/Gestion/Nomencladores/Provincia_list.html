@@ -9,13 +9,20 @@
 {% block title %}
     {{ titulo }}
 {% endblock %}
+{% block title_main %}
+    {{ titulo }}
+{% endblock %}
 {% block title-breadcrumb %}
     {{ titulo }}
 {% endblock %}
 {% block content %}
     <div class="card">
-        <div class="card-header">
-
+        <div class="card-header row">
+            <div class="col-8"></div>
+            <div class="col-4 d-flex justify-content-end">
+                <a class="btn btn-danger" href="{% url 'nueva_provincia' %}"><i class="fa fa-plus mr-2"></i> Nueva
+                    provincia</a>
+            </div>
         </div>
         <div class="card-body">
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -25,20 +32,29 @@
                                aria-describedby="example1_info">
                             <thead>
                             <tr>
-                                <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
-                                    colspan="1" aria-sort="ascending"
-                                    aria-label="Rendering engine: activate to sort column descending">Provincia
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Browser: activate to sort column ascending">Provincias
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Browser: activate to sort column ascending">Siglas
-                                </th>
+                                    aria-label="Platform(s): activate to sort column ascending">Siglas
+                                </th>                                
                             </tr>
                             </thead>
                             <tbody>
                             {% for object in object_list %}
                                 <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">{{ object.provincia }}</td>
+                                    <td>{{ object.provincia }}</td>
                                     <td>{{ object.sigla }}</td>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <a href="{% url 'actualizar_provincia' object.id %}"
+                                               class="btn btn-info p-1 d-flex justify-content-center align-items-center mr-1">
+                                                <i class="fa fa-pencil-alt"></i></a>
+                                            <button onclick="Eliminar({{ object.id }})"
+                                                    class="btn btn-danger p-1 d-flex justify-content-center align-items-center mr-1">
+                                                <i class="fa fa-trash-alt"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -321,5 +337,24 @@
                     }],
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
+
+        function Eliminar(id) {
+            Swal.fire({
+                "title": "¿Estás seguro?",
+                "text": "esta acción no se puede deshacer",
+                "icon": "question",
+                "showCancelButton": true,
+                "cancelButtonText": "No, Cancelar",
+                "confirmButtonText": "Sí, Eliminar",
+                "reverseButtons": true,
+                "confirmButtonColor": "#dc3545",
+            })
+                .then(function (result) {
+                        if (result.isConfirmed) {
+                            window.location.href = "/eliminar_provincia/" + id + "/"
+                        }
+                    }
+                )
+        }
     </script>
 {% endblock %}

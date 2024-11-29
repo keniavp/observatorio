@@ -9,7 +9,7 @@ class Proyectos(models.Model):
     ambito = models.CharField(choices=ambito_list)
     nombre = models.CharField(max_length=500, verbose_name="Nombre", null=True, blank=True)
     categoria = models.CharField(max_length=500, verbose_name="Categoría", null=True, blank=True)
-    imagen = models.CharField(max_length=250, verbose_name="Foto", null=True, blank=True)
+    imagen = models.FileField(upload_to='media/images', null=True, blank=True)
     entidad = models.CharField(max_length=500, verbose_name="Entidad Responsable", null=True, blank=True)
     pais = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True, blank=True)
     provincia = models.ForeignKey(Provincia, on_delete=models.SET_NULL, null=True, blank=True)
@@ -18,7 +18,7 @@ class Proyectos(models.Model):
     fuente = models.CharField(max_length=500, verbose_name="Fuente", null=True, blank=True)
     year = models.CharField(max_length=500, verbose_name="Año", null=True, blank=True)
     url = models.CharField(max_length=500, verbose_name="URL", null=True, blank=True)
-    descriptor = models.CharField(max_length=500, verbose_name="Descriptores", null=True, blank=True)
+    descriptor = models.CharField(max_length=2000, verbose_name="Descriptores", null=True, blank=True)
 
     def __str__(self):
         return self.nombre

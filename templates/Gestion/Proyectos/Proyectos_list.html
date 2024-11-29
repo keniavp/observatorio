@@ -92,8 +92,13 @@
                                     <td>{{ object.year }}</td>
                                     <td>{{ object.url }}</td>
                                     <td>{{ object.descriptor }}</td>
-                                    <td><img src="{{ object.imagen.url }}" alt="evento" class="img-circle"
-                                             style="width:35px; height:35px;"/></td>
+                                    <td>
+                                        {% if object.imagen %}
+                                            <img src="{{ object.imagen.url }}" alt="evento" class="img-circle" style="width:35px; height:35px;"/>
+                                        {% else %}
+                                            <span>No hay imagen disponible</span>
+                                        {% endif %}
+                                    </td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{% url 'actualizar_proyecto' object.id %}"
@@ -389,7 +394,7 @@
 
         function Eliminar(id) {
             Swal.fire({
-                "title": "¿Estas seguro?",
+                "title": "¿Estás seguro?",
                 "text": "esta acción no se puede deshacer",
                 "icon": "question",
                 "showCancelButton": true,

@@ -1,10 +1,13 @@
 from django.db import models
+from Nomencladores.models import Tematica,Tipologia
+
+
 
 # Create your models here.
 class OrdenamientoJ(models.Model):
     nombre = models.CharField(max_length=500, verbose_name="Nombre", null=True, blank=True)
-    tipologia = models.CharField(max_length=500, verbose_name="Tipología", null=True, blank=True)
-    categoria = models.CharField(max_length=500, verbose_name="Categoría", null=True, blank=True)
+    tematica = models.ForeignKey(Tematica, on_delete=models.CASCADE, blank=True,null=True)
+    tipologia = models.ForeignKey(Tipologia, on_delete=models.CASCADE,blank=True,null=True)
     aprobado = models.CharField(max_length=500, verbose_name="Aprobado_por", null=True, blank=True)
     entidad = models.CharField(max_length=500, verbose_name="Entidad Responsable", null=True, blank=True)
     url = models.CharField(max_length=500, verbose_name="URL", null=True, blank=True)

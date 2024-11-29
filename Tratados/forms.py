@@ -17,6 +17,7 @@ class TratadoForm(forms.ModelForm):
             'pdf': forms.FileInput(attrs={'class': 'form-control'}),
             'imagen': forms.FileInput(attrs={'class': 'form-control'}),
             'concepto': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Concepto'}),
+            'enlace': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enlace'}),
         }
         labels = {
             'tipologia': 'Tipología',
@@ -26,5 +27,6 @@ class TratadoForm(forms.ModelForm):
             'year': 'Año',
             'pdf': 'PDF',
             'imagen': 'Imagen',
-            "concepto": "Concepto"
+            "concepto": "Concepto",
+            "enlace": "Enlace",            
         }

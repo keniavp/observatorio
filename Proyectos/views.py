@@ -2,11 +2,10 @@ from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView
-
 from Proyectos.forms import ProyectoForm
 from Proyectos.models import Proyectos
 
@@ -66,6 +65,8 @@ class UpdateProyectoView(UpdateView):
         context['titulo'] = 'Actualizar proyecto'
         context['router'] = "Actualizar proyecto"
         context['year'] = datetime.today().year
+        context['total_proyectos'] = Proyectos.objects.count()
+         
         return context
 
 
@@ -74,3 +75,4 @@ def eliminar_proyecto(request, id):
     item = get_object_or_404(Proyectos, id=id)
     item.delete()
     return redirect(to="proyectos")
+

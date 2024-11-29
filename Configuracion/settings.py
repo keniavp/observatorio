@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "Ordenamiento.apps.OrdenamientoConfig",
     "Tratados.apps.TratadosConfig",
     "Eventos.apps.EventosConfig",
+    "Recursos.apps.RecursosConfig",
 ]
 
 MIDDLEWARE = [
@@ -92,9 +93,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'observatorio',
         'USER': 'postgres',
-        'PASSWORD': '12345678',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 

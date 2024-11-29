@@ -35,3 +35,13 @@ cobertura_list = (
     ('Empresa', 'Empresa'),
     ('Región', 'Región')
 )
+
+tipor_list = (
+    ('Libro', 'Libro'),
+    ('Articulo', 'Articulo'),
+    ('Tesis', 'Tesis'),
+    ('Manual', 'Manual'),
+    ('Audiovisual', 'Audiovisual'),
+    ('Canal', 'Canal'),
+    
+)

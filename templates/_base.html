@@ -34,9 +34,7 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{% url 'home' %}" class="nav-link">Inicio</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
+           
         </ul>
 
         <ul class="navbar-nav ml-auto">
@@ -109,6 +107,55 @@
                                    class="nav-link text-white {% if router == "municipio" %} active {% endif %}">
                                     <i class="far fa-map nav-icon"></i>
                                     <p>Municipios</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'tipologias' %}"
+                                   class="nav-link text-white {% if router == "tipologias" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Tipologías</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'coberturas' %}"
+                                   class="nav-link text-white {% if router == "coberturas" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Coberturas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'tematicas' %}"
+                                   class="nav-link text-white {% if router == "tematicas" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Temáticas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'comunidades_academicas' %}"
+                                   class="nav-link text-white {% if router == "comunidades_academicas" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Comunidades Académicas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'afiliaciones' %}"
+                                   class="nav-link text-white {% if router == "afiliaciones" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Afiliación</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'clasificaciones' %}"
+                                   class="nav-link text-white {% if router == "clasificaciones" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Clasificaciones</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-3">
+                                <a href="{% url 'regiones' %}"
+                                   class="nav-link text-white {% if router == "regiones" %} active {% endif %}">
+                                    <i class="far fa-map nav-icon"></i>
+                                    <p>Regiones</p>
                                 </a>
                             </li>
                         </ul>
