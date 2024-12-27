@@ -9,8 +9,10 @@ class EventosConv(models.Model):
                                            blank=True)
     enlace = models.CharField(max_length=500, verbose_name="Enlace", null=True, blank=True)
     fuente = models.CharField(max_length=500, verbose_name="Fuente", null=True, blank=True)
-    descriptores = models.CharField(max_length=500, verbose_name="Descriptores", null=True, blank=True)
-
+    descriptores = models.CharField(max_length=2000, verbose_name="Descriptores", null=True, blank=True)
+    fechai = models.DateField(verbose_name="Fecha de Inicio", null=True, blank=True)
+    fechaf = models.DateField(verbose_name="Fecha Fin", null=True, blank=True)
+    
     def __str__(self):
         return self.nombre
 

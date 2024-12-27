@@ -15,8 +15,10 @@ class EventosForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'Entidad Responsable'}),
             'enlace': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enlace'}),
             'fuente': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fuente'}),
-            'descriptores': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descriptor'}),
-        }
+            'fechai': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'placeholder': 'Fecha Inicio'}),
+            'fechaf': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'placeholder': 'Fecha Fin'}),
+            'descriptores': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descriptor'}),
+        }    
         labels = {
             'nombre': 'Nombre',
             'imagen': 'Imagen',
@@ -24,5 +26,7 @@ class EventosForm(forms.ModelForm):
             'entidad_responsable': 'Entidad Responsable',
             'enlace': 'Enlace',
             'fuente': 'Fuente',
+            'fechai': 'Fecha de Inicio',
+            'fechaf': 'Fecha Fin',
             'descriptores': 'Descriptor',
         }

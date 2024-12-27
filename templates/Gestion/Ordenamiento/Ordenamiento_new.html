@@ -27,8 +27,13 @@
                             {{ fields }}
                         </div>
                     {% endfor %}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#articuloModal">Agregar Artículo</button>
+                    <!-- Lista de artículos agregados -->
+                    <h3>Artículos Agregados</h3>
+                    <ul id="listaArticulos"></ul>    
                 </div>
-                <div class="row mt-3">
+                
+                   <div class="row mt-3">
                     <div class="col-6 d-flex justify-content-start">
                         <a href="{% url 'ordenamiento' %}" class="btn btn-secondary"><i
                                 class="fa fa-arrow-circle-left mr-2"></i>Cancelar</a>
@@ -38,6 +43,30 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="articuloModal" tabindex="-1" role="dialog" aria-labelledby="articuloModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="articuloModalLabel">Agregar Artículo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="articuloForm">
+                        <div class="form-group">
+                            <label for="articuloNombre">Nombre del Artículo:</label>
+                            <input type="text" class="form-control" id="articuloNombre" required>
+                            <label for="concepto">Concepto:</label>
+                            <input type="text" class="form-control" id="articuloNombre" required>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="agregarArticulo()">Agregar Artículo</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -54,4 +83,25 @@
     <script src="{% static 'plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
     <script src="{% static 'plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
     <script src="{% static 'plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
-{% endblock %}
+    <script>
+        function agregarArticulo() {
+            var articuloNombre = document.getElementById('articuloNombre').value;
+            
+            if (articuloNombre) {
+                var li = document.createElement('li');
+                li.textContent = articuloNombre;
+                document.getElementById('listaArticulos').appendChild(li);
+                
+                // Limpiar el campo de entrada
+                document.getElementById('articuloNombre').value = '';
+        
+                // Cerrar el modal
+                $('#articuloModal').modal('hide');
+            } else {
+                alert("Por favor, ingresa un nombre para el artículo.");
+            }
+        }
+        </script>
+
+    {% endblock %}
+

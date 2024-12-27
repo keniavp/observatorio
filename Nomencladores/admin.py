@@ -49,7 +49,7 @@ class ProyectosAdmin(admin.ModelAdmin):
 
 @admin.register(OrdenamientoJ)
 class OrdenamientoJAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre', 'tipologia', 'tematica', 'aprobado', 'entidad', 'url', 'year', 'pdf', 'concepto']
+    list_display = ['id', 'nombre', 'tipologia', 'aprobado', 'entidad', 'url', 'year', 'pdf']
 
 
 @admin.register(TratadosI)

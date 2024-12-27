@@ -55,10 +55,7 @@
                                     aria-label="CSS grade: activate to sort column ascending">Coordinador
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">Fuente
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">Fecha
+                                    aria-label="CSS grade: activate to sort column ascending">Enlace
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending">Acciones
@@ -69,14 +66,14 @@
                             {% for object in object_list %}
                                 <tr class="odd">
                                     <td class="dtr-control sorting_1" tabindex="0">{{ object.nombre }}</td>
-                                    <td>{{ object.tipologia }}</td>
+                                    <td>{{ object.tip_comunidad }}</td>
                                     <td>{{ object.afiliacion }}</td>
                                     <td>{{ object.cobertura }}</td>
                                     <td>{{ object.categoria }}</td>
                                     <td>{{ object.tematica }}</td>
                                     <td>{{ object.coordinador }}</td>
                                     <td>{{ object.fuente }}</td>
-                                    <td>{{ object.fecha }}</td>
+                                    
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{% url 'actualizar_comunidad' object.id %}"

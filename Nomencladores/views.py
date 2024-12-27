@@ -8,9 +8,14 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView
 
 from Proyectos.models import *
+from Tratados.models import *
+from Comunidades.models import *
+from Eventos.models import *
 
 from Nomencladores.models import *
 from Nomencladores.forms import AfiliacionForm, ClasificacionForm, ComunidadaForm, MunicipioForm, PaisForm, ProvinciaForm, RegionForm,TipologiaForm,CoberturaForm, TematicaForm
+
+
 
 
 # Create your views here.
@@ -26,6 +31,9 @@ class HomeView(ListView):
         context = super().get_context_data(**kwargs)
         context['titulo'] = 'Dashboard'
         context['total_proyectos']=Proyectos.objects.all().count()
+        context['total_tratados']=TratadosI.objects.all().count()
+        context['total_comunidades']=Comunidades.objects.all().count()
+        context['total_eventos']=EventosConv.objects.all().count()
         context['year'] = datetime.today().year
         return context
 

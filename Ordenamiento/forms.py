@@ -1,6 +1,6 @@
 from django import forms
 
-from Ordenamiento.models import OrdenamientoJ
+from Ordenamiento.models import *
 
 
 class OrdenamientoForm(forms.ModelForm):
@@ -17,7 +17,7 @@ class OrdenamientoForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'Enlace'}),
             'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Año'}),
             'pdf': forms.FileInput(attrs={'class': 'form-control'}),
-            'concepto': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Concepto'}),
+          
         }
         labels = {
             'nombre': 'Nombre',
@@ -29,4 +29,17 @@ class OrdenamientoForm(forms.ModelForm):
             'concepto': 'Concepto',
             "url": "Enlace",
             "pdf": "PDF",
+        }
+        
+class ArticuloForm(forms.ModelForm):
+    class Meta:
+        model = Articulo
+        exclude = []
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
+            'concepto': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Concepto'}),
+        }
+        labels = {
+            'nombre': 'Nombre',
+            'concepto': 'Concepto',            
         }

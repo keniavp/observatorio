@@ -35,7 +35,7 @@ class CrearComunidadView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['titulo'] = 'Nueva comunidad'
-        context['router'] = "Nueva comunidad"
+        context['router'] = "nueva_comunidad"
         context['year'] = datetime.today().year
         return context
 
@@ -54,7 +54,7 @@ class UpdateComunidadView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['titulo'] = 'Actualizar comunidad'
-        context['router'] = "Actualizar comunidad"
+        context['router'] = "actualizar_comunidad"
         context['year'] = datetime.today().year
         return context
 
